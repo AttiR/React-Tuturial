@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+import {Container} from 'react-bootstrap'
+import Footer from './Compnents/Footer';
+import Header from './Compnents/Header';
 
 function App() {
   /** The return statement of React component can only return one element.
@@ -13,11 +16,16 @@ function App() {
       <button>Press Me</button>
     </div> The better idea is to use classes for style*/
 
-    <div className="App">
-      <h1>Hello React</h1>
-      <p> We are learning React </p>
-      <button>Press ME</button>
-    </div>
+    <>
+      <Header />
+      <Container>
+      <mian>
+        <h1 className='my-4'>Welcome to React Toturial</h1>
+      </mian>
+      </Container>
+     
+      <Footer />
+    </>
   );
 }
 
