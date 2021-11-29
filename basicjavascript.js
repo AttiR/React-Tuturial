@@ -38,3 +38,27 @@ console.log(
 console.log(
   `First name is: ${person.first_name} and last name is: ${person.Last_name}`
 );
+
+const object1 = {
+  name: 'Arto Hellas',
+  age: 35,
+  education: 'PhD',
+}
+
+const object2 = {
+  name: 'Full Stack web application development',
+  level: 'intermediate studies',
+  size: 5,
+}
+
+const object3 = {
+  name: {
+    first: 'Dan',
+    last: 'Abramov',
+  },
+  grades: [2, 3, 5, 3],
+  department: 'Stanford University',
+}
+
+console.log(object1.name)
+console.log(object2.level)

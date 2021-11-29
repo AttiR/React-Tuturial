@@ -1,0 +1,14 @@
+chapter 1
+
+1. What is Component?
+2. How can We create Component?
+3. How to style Component?
+
+chapter 2
+
+1. What is state?
+2. What is props?
+3. What is JSX?
+4. How to change value of the state?
+5. How to use React Developer Tools?
+6. What is conditional rendering?
