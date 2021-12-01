@@ -22,10 +22,11 @@ function App() {
   const [contacts, setContacts] = useState([]); // store new contact in array
 
   function addContact(contact){ // contact from Create (we are receiving contact)
-
+    // validation if the person already exist
+   
     setContacts(prevContacts => {
-
-      return [...prevContacts, contact]
+      
+      return [...prevContacts, contact] // will return newly created contact
 
     })
 

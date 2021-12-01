@@ -30,17 +30,18 @@ const Create = (props) => {
     <div className="my-5">
       <h2>Add New Contact</h2>
 
-      <form style={{ width: '50%' }}>
-        <input
+      <form className='add-form' style={{ width: '50%' }}>
+      
+        <input className='form-control'
           onChange={handleChange}
           type="text"
           value={contact.person}
           name="person"
           placeholder="Enter name"
         />{' '}
-        <br />
+       
         <input
-          className="my-3"
+          className="form-control my-3"
           onChange={handleChange}
           type="number"
           value={contact.phonenumber}
