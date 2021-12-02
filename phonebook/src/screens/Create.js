@@ -3,6 +3,7 @@ import React from 'react';
 // change the form in controlled compnent means anytime we put input values its stores in state
 import { useState } from 'react';
 import uniqid from 'uniqid'
+
 //
 
 
@@ -28,7 +29,7 @@ const Create = ({setContacts}) => { // we can also {setContact} insted of props
   // on submit prevent the screen to flash
   function addContact(event) {
     event.preventDefault();
-   
+    
     setContacts(prevContacts => [...prevContacts, contact]) // new contact created
     setId(uniqid())   // will set unique id
     setContact({person: '', phonenumber: ''}) // to set form clear
