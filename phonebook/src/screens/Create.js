@@ -2,6 +2,9 @@ import React from 'react';
 
 // change the form in controlled compnent means anytime we put input values its stores in state
 import { useState } from 'react';
+import uniqid from 'uniqid'
+//
+
 
 /** steps to Add functionality 
  1. make constant which can track person and phonenumber (store contact in usestate)
@@ -10,20 +13,26 @@ import { useState } from 'react';
  4. Take Array and render separate components for each item
 */
 
-const Create = (props) => {
-  const [contact, setContact] = useState({ person: '', phonenumber: '' }); // initially store values as empty string
+const Create = ({setContacts}) => { // we can also {setContact} insted of props
+  const [contact, setContact] = useState({ person: '', phonenumber: '' });
+  const[id, setId] = useState(uniqid)
+
   // handlechange will recive event when its trigger, destructuring event to hold event.target.name nand value
   const handleChange = (event) => {
     const { value, name } = event.target;
-    setContact({ ...contact, [name]: value }); // ...contact spread operator values do not change only name change which set to value
+    setContact({ ...contact, [name]: value, id }); // ...contact spread operator values do not change only name change which set to value
   };
 
   // we have to trigger a function in App.js to take Contact in App.js
 
   // on submit prevent the screen to flash
-  function submitContact(event) {
-    props.onContact(contact); // we set props value in App.js
+  function addContact(event) {
     event.preventDefault();
+   
+    setContacts(prevContacts => [...prevContacts, contact]) // new contact created
+    setId(uniqid())   // will set unique id
+    setContact({person: '', phonenumber: ''}) // to set form clear
+   
   }
 
   return (
@@ -49,7 +58,7 @@ const Create = (props) => {
           placeholder="Phonenumber"
         />
       </form>
-      <button onClick={submitContact} className="btn btn-success my-3">
+      <button onClick={addContact} className="btn btn-success my-3">
         Add Contact
       </button>
     </div>

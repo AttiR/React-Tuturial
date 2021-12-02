@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Container } from 'react-bootstrap';
 import Header from './components/Header';
-
+import Notfound from './components/Notfound';
 import Home from './screens/Home';
 import Contacts from './screens/Contacts';
 import Create from './screens/Create';
@@ -20,17 +20,9 @@ import { Routes, Route } from 'react-router-dom';
 function App() {
 
   const [contacts, setContacts] = useState([]); // store new contact in array
+  // pass Contacts to /contacts as props and setContacts to /setContacts
 
-  function addContact(contact){ // contact from Create (we are receiving contact)
-    // validation if the person already exist
-   
-    setContacts(prevContacts => {
-      
-      return [...prevContacts, contact] // will return newly created contact
-
-    })
-
-  }
+  
   return (
     <>
       <Container>
@@ -42,18 +34,17 @@ function App() {
 
           <Route
             path="/Contacts"
-            element={contacts.map(contactItem => 
+            element={
               
                 <Contacts
-                  key={contactItem.key}
-                  person={contactItem.person}
-                  phonenumber={contactItem.phonenumber}
+                  contacts= {contacts}
                 />
             
-            )}
+            }
           />
 
-          <Route path="/Create" element={<Create onContact = {addContact} />} /> {/*** set props value for create */}
+          <Route path="/Create" element={<Create setContacts = {setContacts} />} />  {/*** set props value for create */}
+          <Route path="*" element={<Notfound />} /> 
         </Routes>
       </Container>
     </>
