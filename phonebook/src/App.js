@@ -4,8 +4,10 @@ import Header from './components/Header';
 import Notfound from './components/Notfound';
 import Home from './screens/Home';
 import Contacts from './screens/Contacts';
+
 import Create from './screens/Create';
 import { Routes, Route } from 'react-router-dom';
+import Dashboard from './screens/Dashboard';
 //import contacts from './Data'; // we will pass data through map
 
 /*function createContacts(contactItem){    
@@ -45,6 +47,9 @@ function App() {
 
           <Route path="/Create" element={<Create setContacts = {setContacts} />} />  {/*** set props value for create */}
           <Route path="*" element={<Notfound />} /> 
+          <Route path="/Dashboard" element={<Dashboard />} /> 
+          
+          
         </Routes>
       </Container>
     </>

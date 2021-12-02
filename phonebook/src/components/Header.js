@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Nav,
-  Navbar,
-  Container,
-  Form,
-  FormControl,
-  Button,
-} from 'react-bootstrap';
+import { Nav, Navbar, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -18,10 +11,11 @@ const Header = () => {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-2 my-lg-0"
+              className="ms-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
+
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
@@ -33,16 +27,12 @@ const Header = () => {
               <Nav.Link as={Link} to="/Create">
                 New_Contact
               </Nav.Link>
+             
+              <Nav.Link as={Link} to="/Dashboard">
+                Dashboard
+              </Nav.Link>
+            
             </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>

@@ -3,6 +3,8 @@ import React from 'react';
 // change the form in controlled compnent means anytime we put input values its stores in state
 import { useState } from 'react';
 import uniqid from 'uniqid'
+import { useNavigate } from 'react-router';
+
 
 //
 
@@ -17,6 +19,9 @@ import uniqid from 'uniqid'
 const Create = ({setContacts}) => { // we can also {setContact} insted of props
   const [contact, setContact] = useState({ person: '', phonenumber: '' });
   const[id, setId] = useState(uniqid)
+
+  let naviagate = useNavigate();
+  
 
   // handlechange will recive event when its trigger, destructuring event to hold event.target.name nand value
   const handleChange = (event) => {
@@ -33,10 +38,12 @@ const Create = ({setContacts}) => { // we can also {setContact} insted of props
     setContacts(prevContacts => [...prevContacts, contact]) // new contact created
     setId(uniqid())   // will set unique id
     setContact({person: '', phonenumber: ''}) // to set form clear
+    naviagate('/Contacts')
    
   }
 
   return (
+
     <div className="my-5">
       <h2>Add New Contact</h2>
 
@@ -59,9 +66,10 @@ const Create = ({setContacts}) => { // we can also {setContact} insted of props
           placeholder="Phonenumber"
         />
       </form>
-      <button onClick={addContact} className="btn btn-success my-3">
+      <button onClick={addContact}  className="btn btn-success my-3">
         Add Contact
       </button>
+     
     </div>
   );
 };
