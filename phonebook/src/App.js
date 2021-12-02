@@ -47,7 +47,7 @@ function App() {
 
           <Route path="/Create" element={<Create setContacts = {setContacts} />} />  {/*** set props value for create */}
           <Route path="*" element={<Notfound />} /> 
-          <Route path="/Dashboard" element={<Dashboard />} /> 
+          <Route path="/Dashboard/*" element={<Dashboard />} /> 
           
           
         </Routes>
