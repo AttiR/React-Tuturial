@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router';
  4. Take Array and render separate components for each item
 */
 
-const Create = ({setContacts}) => { // we can also {setContact} insted of props
+const Create = ({setContacts, contacts}) => { // we can also {setContact} insted of props
   const [contact, setContact] = useState({ person: '', phonenumber: '' });
   const[id, setId] = useState(uniqid)
 
@@ -34,7 +34,7 @@ const Create = ({setContacts}) => { // we can also {setContact} insted of props
   // on submit prevent the screen to flash
   function addContact(event) {
     event.preventDefault();
-    
+  
     setContacts(prevContacts => [...prevContacts, contact]) // new contact created
     setId(uniqid())   // will set unique id
     setContact({person: '', phonenumber: ''}) // to set form clear
