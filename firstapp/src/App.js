@@ -7,6 +7,7 @@ import Total from './components/Total';
 function App() {
   const [feedback, setFeedback] = useState(0);
   const [contact, setContact] = useState(0);
+  const[counter, setCounter]=useState(0);
 
   const now = new Date();
   const a = 10;
@@ -90,6 +91,9 @@ function App() {
           }
         />
       </div>
+      <Button onClick={()=> setCounter(counter+1)}>Click  Counter</Button>
+      <p> counter pressed for {counter} times</p>
+      <Hello age='13' name='Atti' job='Engineering'/>
     </Container>
   );
 }
