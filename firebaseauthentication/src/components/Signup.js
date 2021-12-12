@@ -14,6 +14,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       await signUp(name, email, password);
+     
     } catch (err) {
       setError(err.message);
     }

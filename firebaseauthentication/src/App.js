@@ -6,7 +6,8 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Notfound from './components/Notfound';
 import { Routes, Route } from 'react-router-dom';
-import {UserAuthContextProvider} from './context/UserAuthContext';
+import { UserAuthContextProvider } from './context/UserAuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
@@ -14,9 +15,18 @@ function App() {
       <Header />
       <UserAuthContextProvider>
         <Routes>
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/*" element={<Notfound />} />
+          <Route
+            exact
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/*" element={<Notfound />} />
         </Routes>
       </UserAuthContextProvider>
     </div>
