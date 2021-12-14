@@ -17,10 +17,9 @@ function App() {
 
   const fetchBooks = () => {
     fetch(
-      'https://bookstore-4534b-default-rtdb.europe-west1.firebasedatabase.app/books/.json'
+      'API'
     )
       .then((response) => response.json())
-      .then((data) => setBooks(Object.values(data)))
       .then((data) => addKeys(data))
       .catch((err) => console.error(err));
   };
@@ -28,15 +27,16 @@ function App() {
   // Add keys to the book objects
   const addKeys = (data) => {
     const keys = Object.keys(data);
-    const valueKeys = Object.values(data).map((item, index) =>
-      Object.defineProperty(item, 'id', { value: keys[index] })
+    const valueKeys = Object.values(data).map((book, index) =>
+      Object.defineProperty(book, 'id', { value: keys[index] })
     );
     setBooks(valueKeys);
   };
+
   // Post Request for add Book
   const addBook = (newBook) => {
     fetch(
-      'https://bookstore-4534b-default-rtdb.europe-west1.firebasedatabase.app/books/.json',
+      'API',
       {
         method: 'POST',
         body: JSON.stringify(newBook),
@@ -50,7 +50,7 @@ function App() {
 
   const deleteBook = (id) => {
     fetch(
-      `https://bookstore-4534b-default-rtdb.europe-west1.firebasedatabase.app/books/${id}.json`,
+      `DEL_API`,
       {
         method: 'DELETE',
       }
@@ -78,16 +78,20 @@ function App() {
             <AgGridColumn sortable={true} filter={true} field="isbn" />
             <AgGridColumn sortable={true} filter={true} field="price" />
 
-            <AgGridColumn 
-            headerName=''
-            field='id' 
-            width={90}
-            cellRendererFramework={ params => 
-              <IconButton onClick={() => deleteBook(params.value)} size="small" color="secondary">
-                <DeleteIcon />
-              </IconButton>
-            }
-          />
+            <AgGridColumn
+              headerName=""
+              field="id"
+              width={90}
+              cellRendererFramework={(params) => (
+                <IconButton
+                  onClick={() => deleteBook(params.value)}
+                  size="small"
+                  color="secondary"
+                >
+                  <DeleteIcon />
+                </IconButton>
+              )}
+            />
           </AgGridReact>
         </div>
       </Container>

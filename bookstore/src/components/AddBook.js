@@ -8,11 +8,17 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 const AddBook = (props) => {
   const [open, setOpen] = useState(false);
-  const [book, setBook] = useState({title: '', author: '', year: '', isbn:'', price:''});
+  const [book, setBook] = useState({
+    title: '',
+    author: '',
+    year: '',
+    isbn: '',
+    price: '',
+  });
 
   const inputChanged = (event) => {
-    setBook({...book, [event.target.name]: event.target.value});
-  }
+    setBook({ ...book, [event.target.name]: event.target.value });
+  };
 
   const handleOpen = () => {
     setOpen(true);
@@ -25,7 +31,7 @@ const AddBook = (props) => {
   const handleSave = () => {
     props.addBook(book);
     handleClose();
-  }
+  };
 
   return (
     <div>
@@ -36,48 +42,46 @@ const AddBook = (props) => {
         <DialogTitle>New Book</DialogTitle>
 
         <DialogContent>
-
-        <TextField
+          <TextField
             name="title"
             value={book.title}
             onChange={inputChanged}
             margin="dense"
             label="Title"
             fullWidth
-          /> 
-         <TextField
-           name="auther"
-           value={book.author}
-           onChange={inputChanged}
-           margin="dense"
-           label="Auther"
-           fullWidth
-         /> 
-         <TextField
-           name="year"
-           value={book.year}
-           onChange={inputChanged}
-           margin="dense"
-           label="Year"
-           fullWidth
-         /> 
-         <TextField
-           name="isbn"
-           value={book.isbn}
-           onChange={inputChanged}
-           margin="dense"
-           label="Isbn"
-           fullWidth
-         /> 
-         <TextField
-           name="price"
-           value={book.price}
-           onChange={inputChanged}
-           margin="dense"
-           label="Price"
-           fullWidth
-         /> 
-
+          />
+          <TextField
+            name="author"
+            value={book.author}
+            onChange={inputChanged}
+            margin="dense"
+            label="Author"
+            fullWidth
+          />
+          <TextField
+            name="year"
+            value={book.year}
+            onChange={inputChanged}
+            margin="dense"
+            label="Year"
+            fullWidth
+          />
+          <TextField
+            name="isbn"
+            value={book.isbn}
+            onChange={inputChanged}
+            margin="dense"
+            label="Isbn"
+            fullWidth
+          />
+          <TextField
+            name="price"
+            value={book.price}
+            onChange={inputChanged}
+            margin="dense"
+            label="Price"
+            fullWidth
+          />
         </DialogContent>
         <DialogActions>
           <Button color="primary" onClick={handleClose}>
