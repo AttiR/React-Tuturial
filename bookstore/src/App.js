@@ -80,11 +80,38 @@ function App() {
           style={{ height: 400, width: 1000, margin: 'auto' }}
         >
           <AgGridReact rowData={books}>
-            <AgGridColumn sortable={true} filter={true} field="title" />
-            <AgGridColumn sortable={true} filter={true} field="author" />
-            <AgGridColumn  width={100} sortable={true} filter={true} field="year" />
-            <AgGridColumn  sortable={true} filter={true} field="isbn" />
-            <AgGridColumn width={100} sortable={true} filter={true} field="price" />
+            <AgGridColumn
+              suppressMoveable={true}
+              sortable={true}
+              filter={true}
+              field="title"
+            />
+            <AgGridColumn
+              suppressMoveable={true}
+              sortable={true}
+              filter={true}
+              field="author"
+            />
+            <AgGridColumn
+              suppressMoveable={true}
+              width={100}
+              sortable={true}
+              filter={true}
+              field="year"
+            />
+            <AgGridColumn
+              suppressMoveable={true}
+              sortable={true}
+              filter={true}
+              field="isbn"
+            />
+            <AgGridColumn
+              suppressMoveable={true}
+              width={100}
+              sortable={true}
+              filter={true}
+              field="price"
+            />
 
             <AgGridColumn
               headerName=""
