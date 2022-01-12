@@ -1,5 +1,5 @@
 # React-Tuturial
-Moden React with Functional Components and Hooks. There are some small projects like Todo APP, Phonebook manager, Book Store ..... 
+Moden React with Functional Components and Hooks. There are some small projects like Todo APP, Phonebook manager, Book Store, Firebase Authentication and many More. 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
